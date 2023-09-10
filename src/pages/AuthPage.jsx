@@ -1,8 +1,12 @@
+import AuthContainer from "../components/AuthContainer";
+
 function AuthPage() {
   return (
-    <div>
-      <h1>Authetication Page</h1>
-    </div>
+    <>
+      <div>
+        <AuthContainer />
+      </div>
+    </>
   );
 }
 

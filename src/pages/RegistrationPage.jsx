@@ -1,7 +1,9 @@
+import RegistrationContainer from "../components/RegistrationContainer";
+
 function RegistrationPage() {
   return (
     <div>
-      <h1>Registration Page</h1>
+      <RegistrationContainer />
     </div>
   );
 }
