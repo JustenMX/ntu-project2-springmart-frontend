@@ -1,12 +1,14 @@
 import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="font-bold">Spring Mart Frontend</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
