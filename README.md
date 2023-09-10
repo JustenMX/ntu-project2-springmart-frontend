@@ -1,4 +1,4 @@
-## NTU Software Engineering Project 1
+## NTU Software Engineering Project 2
 
 ## Spring Mart (Client / Frontend)
 
