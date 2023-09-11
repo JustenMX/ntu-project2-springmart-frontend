@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 function TermsContainer() {
   return (
     <div className="container mx-auto px-4 py-8 font-sans">
       <h1 className="text-2xl font-bold mb-4">Terms and Conditions</h1>
 
-      <section className="my-10">
-        <h2 className="text-xl font-semibold mb-2">1. Intellectual Property</h2>
+      <section className="my-10 text-xs">
+        <h2 className="text-sm font-semibold mb-2">1. Intellectual Property</h2>
         <p>
           The Service and its original content, features, and functionality are
           owned by Spring Mart and are protected by international copyright,
@@ -13,8 +14,8 @@ function TermsContainer() {
         </p>
       </section>
 
-      <section className="my-10">
-        <h2 className="text-xl font-semibold mb-2">2. User Content</h2>
+      <section className="my-10 text-xs">
+        <h2 className="text-sm font-semibold mb-2">2. User Content</h2>
         <p>
           You grant Spring Mart a non-exclusive, worldwide, royalty-free,
           irrevocable, sub-licensable license to use, reproduce, adapt, publish,
@@ -25,8 +26,8 @@ function TermsContainer() {
         </p>
       </section>
 
-      <section className="my-10">
-        <h2 className="text-xl font-semibold mb-2">3. Prohibited Activities</h2>
+      <section className="my-10 text-xs">
+        <h2 className="text-sm font-semibold mb-2">3. Prohibited Activities</h2>
         <p>
           You may not access or use the Service for any purpose other than that
           for which we make the Service available. You are not allowed to:
@@ -50,8 +51,8 @@ function TermsContainer() {
         </ul>
       </section>
 
-      <section>
-        <h2 className="text-xl font-semibold mb-2">4. Governing Law</h2>
+      <section className="my-10 text-xs">
+        <h2 className="text-sm font-semibold mb-2">4. Governing Law</h2>
         <p>
           This Agreement (and any further rules, policies, or guidelines
           incorporated by reference) shall be governed and construed in
@@ -59,6 +60,9 @@ function TermsContainer() {
           principles of conflicts of law.
         </p>
       </section>
+      <div className="text-blue-600 underline text-sm">
+        <Link to="/">Home</Link>
+      </div>
     </div>
   );
 }
