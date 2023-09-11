@@ -67,7 +67,7 @@ function AuthForm() {
         <Link to="/springmart">
           <button
             type="submit"
-            className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+            className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white my-5"
           >
             Sign in
           </button>
