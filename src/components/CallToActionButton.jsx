@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-function ButtonCta(props) {
+function CallToActionButton(props) {
   const { className, buttonFunc, buttonTitle, path, buttonLabel } = props;
   return (
     <>
@@ -12,4 +12,4 @@ function ButtonCta(props) {
   );
 }
 
-export default ButtonCta;
+export default CallToActionButton;

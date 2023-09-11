@@ -5,6 +5,7 @@ import AuthPage from "./pages/AuthPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import TermsCondition from "./pages/TermsCondition";
 import PrivacyPage from "./pages/PrivacyPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/terms" element={<TermsCondition />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
