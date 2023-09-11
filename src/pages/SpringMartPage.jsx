@@ -1,6 +1,6 @@
 import NavSideBar from "../components/NavSideBar";
 
-function Dashboard() {
+function SpringMartPage() {
   return (
     <>
       <NavSideBar />
@@ -15,4 +15,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default SpringMartPage;

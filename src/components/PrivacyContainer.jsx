@@ -1,86 +1,69 @@
 import { Link } from "react-router-dom";
+import PrivacyContent from "./PrivacyContent";
 function PrivacyContainer() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-4">Privacy Policy</h1>
+    <div>
+      <section className="bg-white">
+        <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+          <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+            <img
+              alt="groceries"
+              src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3870&q=80"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black opacity-40"></div>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2">Information We Collect</h2>
-        <p>We may collect the following types of personal information:</p>
-        <ul className="list-disc pl-6">
-          <li>Name</li>
-          <li>Email address</li>
-          <li>Contact information</li>
-          <li>Billing information</li>
-          <li>Usage data (e.g., pages visited, interactions)</li>
-          <li>Device information (e.g., browser type, IP address)</li>
-          <li>Cookies and tracking technologies</li>
-        </ul>
-      </section>
+            <div className="hidden lg:relative lg:block lg:p-12">
+              <Link to="/">
+                <span className="sr-only">Home</span>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2">
-          How We Use Your Information
-        </h2>
-        <p>We may use your personal information for the following purposes:</p>
-        <ul className="list-disc pl-6">
-          <li>Provide, maintain, and improve the Service</li>
-          <li>Process transactions and send notifications</li>
-          <li>Respond to your requests, comments, or questions</li>
-          <li>Send newsletters, promotions, and marketing materials</li>
-          <li>Monitor and analyze usage patterns and trends</li>
-        </ul>
-      </section>
+                <img
+                  src="src/assets/logo.svg"
+                  alt="logo"
+                  className="h-auto max-w-full sm:h-32"
+                />
+              </Link>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2">Information Sharing</h2>
-        <p>We may share your personal information with:</p>
-        <ul className="list-disc pl-6">
-          <li>Service providers and partners for business operations</li>
-          <li>Legal authorities for compliance with legal obligations</li>
-          <li>Third-party analytics providers for data analysis</li>
-        </ul>
-      </section>
+              <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+                Welcome to Spring Mart
+              </h2>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2">Your Choices</h2>
-        <p>You have the right to:</p>
-        <ul className="list-disc pl-6">
-          <li>Access, correct, or delete your personal information</li>
-          <li>Opt-out of marketing communications</li>
-          <li>Disable cookies in your browser settings</li>
-        </ul>
-      </section>
+              <p className="mt-4 leading-relaxed text-white/90">
+                Explore a curated selection of products where technology meets
+                style. At Spring Mart, we&apos;re passionate about delivering
+                cutting-edge innovations for your everyday needs.
+              </p>
+            </div>
+          </section>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2">Security</h2>
-        <p>
-          We implement security measures to protect your personal information
-          from unauthorized access, alteration, disclosure, or destruction.
-        </p>
-      </section>
+          <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+            <div className="max-w-xl lg:max-w-3xl">
+              <div className="relative -mt-16 block lg:hidden">
+                <Link to="/">
+                  <span className="sr-only">Home</span>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2">Changes to this Policy</h2>
-        <p>
-          We may update this Policy from time to time. We will notify you of any
-          significant changes by posting the new Policy on this page.
-        </p>
-      </section>
+                  <img
+                    src="src/assets/logo.svg"
+                    alt="logo"
+                    className="h-auto max-w-full sm:h-12"
+                  />
+                </Link>
 
-      <section className="my-5 text-xs">
-        <h2 className="text-sm font-semibold mb-2 ">Contact Us</h2>
-        <p>
-          If you have any questions or concerns about this Policy, please
-          contact us at{" "}
-          <span className="text-blue-600">
-            <a href="mailto:contact@example.com">support@springmart.com</a>.
-          </span>
-        </p>
+                <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+                  Welcome to Spring Mart
+                </h1>
+
+                <p className="mt-4 leading-relaxed text-gray-500">
+                  Explore a curated selection of products where technology meets
+                  style. At Spring Mart, we&apos;re passionate about delivering
+                  cutting-edge innovations for your everyday needs.
+                </p>
+              </div>
+              <PrivacyContent />
+            </div>
+          </main>
+        </div>
       </section>
-      <div className="text-blue-600 underline text-sm">
-        <Link to="/">Home</Link>
-      </div>
     </div>
   );
 }
