@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import PrivacyContainer from "../components/PrivacyContainer";
 
-function PrivacyPolicy() {
+function PrivacyPage() {
   return (
     <div>
       <section className="bg-white">
@@ -70,4 +70,4 @@ function PrivacyPolicy() {
   );
 }
 
-export default PrivacyPolicy;
+export default PrivacyPage;

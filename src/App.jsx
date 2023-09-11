@@ -4,7 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import TermsCondition from "./pages/TermsCondition";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPage from "./pages/PrivacyPage";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/terms" element={<TermsCondition />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
     </BrowserRouter>
   );
