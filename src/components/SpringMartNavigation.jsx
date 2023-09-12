@@ -38,11 +38,39 @@ function SpringMartNavigation() {
               <h1 className="text-lg font-semibold text-indigo-500">Home</h1>
             </Link>
 
-            <Link to="/springmart/category">
-              <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
-                Categories
-              </h1>
-            </Link>
+            <div className="relative group">
+              <Link to="/springmart/category">
+                <span className="text-lg font-semibold text-gray-600 group-hover:text-indigo-500 group-hover:cursor-pointer">
+                  Categories
+                </span>
+              </Link>
+              <div className="absolute hidden bg-white border border-gray-200 py-2 z-20 group-hover:block">
+                <Link
+                  to="/springmart/category/beverages"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Beverages
+                </Link>
+                <Link
+                  to="/springmart/category/frozen"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Frozen
+                </Link>
+                <Link
+                  to="/springmart/category/snacks"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Snacks
+                </Link>
+                <Link
+                  to="/springmart/category/essentials"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Essentials
+                </Link>
+              </div>
+            </div>
 
             <Link to="/springmart/products">
               <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
