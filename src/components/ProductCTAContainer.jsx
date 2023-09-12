@@ -1,16 +1,15 @@
-function ProductCTA() {
+function ProductCTAContainer() {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div className="mb-10 md:mb-16">
           <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
-            Hot Selections
+            Fast Moving Items
           </h2>
 
           <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-            This is a section of some simple filler text, also known as
-            placeholder text. It shares some characteristics of a real written
-            text but is random or otherwise generated.
+            These products are in high demand and selling out quickly.
+            Don&apos;t miss your chance to grab them before they&apos;re gone!
           </p>
         </div>
 
@@ -21,9 +20,9 @@ function ProductCTA() {
               className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
             >
               <img
-                src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                 loading="lazy"
-                alt="Photo by Austin Wade"
+                alt="Pineapple"
                 className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
 
@@ -43,7 +42,7 @@ function ProductCTA() {
                   href="#"
                   className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
                 >
-                  Fancy Outfit
+                  Pineapple
                 </a>
                 <span className="text-gray-500">by Fancy Brand</span>
               </div>
@@ -64,9 +63,9 @@ function ProductCTA() {
               className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
             >
               <img
-                src="https://images.unsplash.com/photo-1523359346063-d879354c0ea5?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                 loading="lazy"
-                alt="Photo by Nick Karvounis"
+                alt="Strawberry"
                 className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
             </a>
@@ -77,7 +76,7 @@ function ProductCTA() {
                   href="#"
                   className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
                 >
-                  Cool Outfit
+                  Strawberry
                 </a>
                 <span className="text-gray-500">by Cool Brand</span>
               </div>
@@ -95,9 +94,9 @@ function ProductCTA() {
               className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
             >
               <img
-                src="https://images.unsplash.com/photo-1548286978-f218023f8d18?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                src="https://images.unsplash.com/photo-1616606103915-dea7be788566?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                 loading="lazy"
-                alt="Photo by Austin Wade"
+                alt="chips"
                 className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
             </a>
@@ -108,7 +107,7 @@ function ProductCTA() {
                   href="#"
                   className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
                 >
-                  Nice Outfit
+                  Love Corn Chips
                 </a>
                 <span className="text-gray-500">by Nice Brand</span>
               </div>
@@ -126,9 +125,9 @@ function ProductCTA() {
               className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
             >
               <img
-                src="https://images.unsplash.com/photo-1566207274740-0f8cf6b7d5a5?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+                src="https://images.unsplash.com/photo-1580314552228-5a7ce023fc9e?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
                 loading="lazy"
-                alt="Photo by Vladimir Fedotov"
+                alt="pulsitos"
                 className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
             </a>
@@ -139,7 +138,7 @@ function ProductCTA() {
                   href="#"
                   className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
                 >
-                  Lavish Outfit
+                  Pulsitos
                 </a>
                 <span className="text-gray-500">by Lavish Brand</span>
               </div>
@@ -157,4 +156,4 @@ function ProductCTA() {
   );
 }
 
-export default ProductCTA;
+export default ProductCTAContainer;
