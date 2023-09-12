@@ -13,7 +13,8 @@ import AboutPage from "./pages/AboutPage";
 import WishListPage from "./pages/WishListPage";
 import UserAccountPage from "./pages/UserAccountPage";
 import CartCheckoutPage from "./pages/CartCheckoutPage";
-import ProductPage from "./pages/ProductPage";
+import ProductListingPage from "./pages/ProductListingPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
   return (
@@ -28,7 +29,11 @@ function App() {
         {/* Spring Mart Routes */}
         <Route path="/springmart" element={<SpringMartPage />} />
         <Route path="/springmart/category" element={<CategoryPage />} />
-        <Route path="/springmart/products" element={<ProductPage />} />
+        <Route path="/springmart/products" element={<ProductListingPage />} />
+        <Route
+          path="/springmart/products/:productId"
+          element={<ProductDetailPage />}
+        />
         <Route path="/springmart/sales" element={<SalesPage />} />
         <Route path="/springmart/about" element={<AboutPage />} />
         <Route path="/springmart/wishlist" element={<WishListPage />} />
