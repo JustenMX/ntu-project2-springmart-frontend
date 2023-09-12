@@ -5,6 +5,8 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
+import AnimatedConfetti from "./AnimatedConfetti";
+
 function SpringMartHero() {
   return (
     <div>
@@ -46,8 +48,9 @@ function SpringMartHero() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-          {/* <div className="flex h-12 w-64 divide-x overflow-hidden rounded-lg border">
-          </div> */}
+          <div className="flex h-12 w-48 divide-x overflow-hidden rounded-lg border">
+            <AnimatedConfetti />
+          </div>
 
           <div className="flex items-center justify-center gap-4 lg:justify-start">
             <span className="text-sm font-semibold uppercase tracking-widest text-gray-400 sm:text-base">

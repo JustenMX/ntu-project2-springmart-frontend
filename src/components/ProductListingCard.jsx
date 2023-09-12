@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function ProductListingCard(props) {
   const {
@@ -10,6 +12,7 @@ function ProductListingCard(props) {
     productListingProductBrand,
     productListingCurrentPrice,
     productListingOriginalPrice,
+    productDeleteAllowed,
   } = props;
   return (
     <div>
@@ -29,7 +32,13 @@ function ProductListingCard(props) {
           </span>
         )}
 
-        <button className="absolute bottom-2 right-2 bg-emerald-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-emerald-700 focus:ring-emerald-600">
+        {productDeleteAllowed && (
+          <button className="absolute top-2 right-2 p-2 bg-white rounded-xl  hover:bg-slate-200 focus:ring-slate-300">
+            <FontAwesomeIcon icon={faXmark} size="xl" />
+          </button>
+        )}
+
+        <button className="absolute bottom-2 right-2 bg-amber-400 font-light text-black py-2 px-4 rounded-full shadow-sm hover:bg-slate-200 focus:ring-slate-300">
           Add to Cart
         </button>
       </div>
