@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../assets/logo.svg";
 import {
   faLinkedin,
   faGithub,
@@ -16,7 +17,7 @@ function SpringMartFooter() {
                 aria-label="logo"
               >
                 <img
-                  src="src/assets/logo.svg"
+                  src={logo}
                   alt="logo"
                   className="h-auto w-12 sm:w-auto max-w-full sm:h-24"
                 />
