@@ -19,31 +19,31 @@ function Navigation() {
             </span>
           </Link>
           {/* nav start */}
-
           <nav className="hidden gap-12 lg:flex 2xl:ml-16">
-            <a href="#" className="text-lg font-semibold text-indigo-500">
-              Home
-            </a>
-            <a
-              href="#"
-              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-            >
-              Categories
-            </a>
-            <a
-              href="#"
-              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-            >
-              Sale
-            </a>
-            <a
-              href="#"
-              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-            >
-              About
-            </a>
+            <Link to="/springmart">
+              <h1 className="text-lg font-semibold text-indigo-500">Home</h1>
+            </Link>
+
+            <Link to="/springmart/category">
+              <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
+                Categories
+              </h1>
+            </Link>
+
+            <Link to="/springmart/sales">
+              <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
+                Sale
+              </h1>
+            </Link>
+
+            <Link to="/springmart/about">
+              <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
+                About
+              </h1>
+            </Link>
           </nav>
           {/* nav end */}
+
           {/* button start */}
           <div className="flex divide-x border-r sm:border-l">
             <a

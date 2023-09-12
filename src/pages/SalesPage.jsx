@@ -1,6 +1,6 @@
 //
 
-function SalePage() {
+function SalesPage() {
   return (
     <div>
       <h1>Sale Page</h1>
@@ -8,4 +8,4 @@ function SalePage() {
   );
 }
 
-export default SalePage;
+export default SalesPage;
