@@ -44,6 +44,12 @@ function Navigation() {
               </h1>
             </Link>
 
+            <Link to="/springmart/products">
+              <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
+                Products
+              </h1>
+            </Link>
+
             <Link to="/springmart/sales">
               <h1 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700">
                 Sale
@@ -126,6 +132,14 @@ function Navigation() {
                 >
                   Categories
                 </Link>
+
+                <Link
+                  to="/springmart/products"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Products
+                </Link>
+
                 <Link
                   to="/springmart/sales"
                   className="block px-4 py-2 hover:bg-gray-100"
