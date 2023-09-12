@@ -28,6 +28,10 @@ function ProductListingCard(props) {
             {productListingPromotionLabel}
           </span>
         )}
+
+        <button className="absolute bottom-2 right-2 bg-emerald-600 text-white py-2 px-4 rounded-full shadow-sm hover:bg-emerald-700 focus:ring-emerald-600">
+          Add to Cart
+        </button>
       </div>
 
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-1 text-gray-500 lg:text-lg">

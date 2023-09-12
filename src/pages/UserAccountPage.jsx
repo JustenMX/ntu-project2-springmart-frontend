@@ -1,10 +1,11 @@
 import SpringMartNavigation from "../components/SpringMartNavigation";
+import WorkInProgress from "../components/WorkInProgressContainer";
 
 function UserAccountPage() {
   return (
     <div>
       <SpringMartNavigation />
-      <h1>User Account Page</h1>
+      <WorkInProgress />
     </div>
   );
 }

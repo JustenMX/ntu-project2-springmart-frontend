@@ -18,7 +18,7 @@ function SpringMartNavigation() {
 
   return (
     <>
-      <header className="mb-8 border-b relative">
+      <header className="border-b relative">
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-4 md:px-8">
           <Link to="/springmart">
             <span

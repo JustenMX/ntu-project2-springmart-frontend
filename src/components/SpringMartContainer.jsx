@@ -10,7 +10,9 @@ function SpringMartContainer() {
   return (
     <>
       <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
-        <SpringMartNavigation />
+        <div className="mb-8">
+          <SpringMartNavigation />
+        </div>
         <SpringMartHero />
       </div>
       <ProductCTAContainer />
