@@ -1,9 +1,14 @@
-//
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+
+import ProductDetailContainer from "../components/ProductDetailContainer";
 
 function ProductDetailPage() {
   return (
     <div>
-      <h1>Product Detail Page</h1>
+      <Navigation />
+      <ProductDetailContainer />
+      <Footer />
     </div>
   );
 }
