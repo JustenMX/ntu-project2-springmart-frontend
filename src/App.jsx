@@ -11,6 +11,7 @@ import CategoryPage from "./pages/CategoryPage";
 import SalesPage from "./pages/SalesPage";
 import AboutPage from "./pages/AboutPage";
 import WishListPage from "./pages/WishListPage";
+import UserAccountPage from "./pages/UserAccountPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/springmart/sales" element={<SalesPage />} />
         <Route path="/springmart/about" element={<AboutPage />} />
         <Route path="/springmart/wishlist" element={<WishListPage />} />
+        <Route path="/springmart/user" element={<UserAccountPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
