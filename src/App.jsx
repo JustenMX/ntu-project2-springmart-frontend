@@ -12,7 +12,7 @@ import SalesPage from "./pages/SalesPage";
 import AboutPage from "./pages/AboutPage";
 import WishListPage from "./pages/WishListPage";
 import UserAccountPage from "./pages/UserAccountPage";
-import CartCheckoutPage from "./pages/CartCheckoutPage";
+import CartPage from "./pages/CartPage";
 import ProductListingPage from "./pages/ProductListingPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 
@@ -30,6 +30,7 @@ function App() {
         <Route path="/springmart" element={<SpringMartPage />} />
         <Route path="/springmart/category" element={<CategoryPage />} />
         <Route path="/springmart/products" element={<ProductListingPage />} />
+        {/* to add a route here when products filtered by category */}
         <Route
           path="/springmart/products/:productId"
           element={<ProductDetailPage />}
@@ -38,7 +39,7 @@ function App() {
         <Route path="/springmart/about" element={<AboutPage />} />
         <Route path="/springmart/wishlist" element={<WishListPage />} />
         <Route path="/springmart/user" element={<UserAccountPage />} />
-        <Route path="/springmart/cart" element={<CartCheckoutPage />} />
+        <Route path="/springmart/cart" element={<CartPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

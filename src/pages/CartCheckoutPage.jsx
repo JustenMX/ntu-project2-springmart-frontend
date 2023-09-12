@@ -1,14 +1,9 @@
-import SpringMartNavigation from "../components/SpringMartNavigation";
-import SpringMartFooter from "../components/SpringMartFooter";
-
-function CartCheckoutPage() {
+function CartCheckOutPage() {
   return (
     <div>
-      <SpringMartNavigation />
-      <h1> Cart checkout page </h1>
-      <SpringMartFooter />
+      <h1>Cart Checkout Page</h1>
     </div>
   );
 }
 
-export default CartCheckoutPage;
+export default CartCheckOutPage;
