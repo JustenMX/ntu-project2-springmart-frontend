@@ -1,16 +1,16 @@
 import BannerCTA from "./BannerCTA";
-import Footer from "./Footer";
-import Navigation from "./Navigation";
+import SpringMartFooter from "../components/SpringMartFooter";
 import NewsLetterCTA from "./NewsLetterCTA";
 import SpringMartHero from "./SpringMartHero";
 import ProductCTAContainer from "./ProductCTAContainer";
 import CategoryCTAContainer from "./CategoryCTAContainer";
+import SpringMartNavigation from "./SpringMartNavigation";
 
 function SpringMartContainer() {
   return (
     <>
       <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
-        <Navigation />
+        <SpringMartNavigation />
         <SpringMartHero />
       </div>
       <ProductCTAContainer />
@@ -21,7 +21,7 @@ function SpringMartContainer() {
 
       <NewsLetterCTA />
 
-      <Footer />
+      <SpringMartFooter />
     </>
   );
 }

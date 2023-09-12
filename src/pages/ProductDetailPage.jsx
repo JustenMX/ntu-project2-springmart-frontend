@@ -1,14 +1,13 @@
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
-
+import SpringMartFooter from "../components/SpringMartFooter";
 import ProductDetailContainer from "../components/ProductDetailContainer";
+import SpringMartNavigation from "../components/SpringMartNavigation";
 
 function ProductDetailPage() {
   return (
     <div>
-      <Navigation />
+      <SpringMartNavigation />
       <ProductDetailContainer />
-      <Footer />
+      <SpringMartFooter />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import {
   faGithub,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-function Footer() {
+function SpringMartFooter() {
   return (
     <div className="bg-white pt-4 sm:pt-10 lg:pt-12">
       <footer className="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -267,4 +267,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default SpringMartFooter;

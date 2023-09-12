@@ -8,7 +8,7 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Navigation() {
+function SpringMartNavigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -164,4 +164,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default SpringMartNavigation;

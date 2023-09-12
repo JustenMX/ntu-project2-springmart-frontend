@@ -1,9 +1,13 @@
-//
+import SpringMartNavigation from "../components/SpringMartNavigation";
+import SpringMartFooter from "../components/SpringMartFooter";
+import CategoryPageContainer from "../components/CategoryPageContainer";
 
 function CategoryPage() {
   return (
     <div>
-      <h1>Category Page</h1>
+      <SpringMartNavigation />
+      <CategoryPageContainer />
+      <SpringMartFooter />
     </div>
   );
 }
