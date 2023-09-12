@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import RegistrationForm from "./RegistrationForm";
+import logo from "../assets/logo.svg";
 function RegistrationContainer() {
   return (
     <div>
@@ -8,19 +9,17 @@ function RegistrationContainer() {
           <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
             <img
               alt="groceries"
-              src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3870&q=80"
+              src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?&auto=format&fit=crop&w=3870&q=80"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-black opacity-40"></div>
 
             <div className="hidden lg:relative lg:block lg:p-12">
               <Link to="/">
-                <span className="sr-only">Home</span>
-
                 <img
-                  src="src/assets/logo.svg"
+                  src={logo}
                   alt="logo"
-                  className="h-auto max-w-full sm:h-32"
+                  className="h-auto w-12 sm:w-auto max-w-full sm:h-24"
                 />
               </Link>
 
@@ -40,12 +39,10 @@ function RegistrationContainer() {
             <div className="max-w-xl lg:max-w-3xl">
               <div className="relative -mt-16 block lg:hidden">
                 <Link to="/">
-                  <span className="sr-only">Home</span>
-
                   <img
-                    src="src/assets/logo.svg"
+                    src={logo}
                     alt="logo"
-                    className="h-auto max-w-full sm:h-12"
+                    className="h-auto w-12 sm:w-auto max-w-full sm:h-24"
                   />
                 </Link>
 

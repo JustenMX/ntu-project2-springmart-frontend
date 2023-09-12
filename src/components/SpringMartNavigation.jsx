@@ -99,21 +99,29 @@ function SpringMartNavigation() {
               <div className="hidden h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:flex sm:h-20 sm:w-20 md:h-24 md:w-24">
                 <FontAwesomeIcon icon={faHeart} size="lg" />
 
-                <span className="hidden text-xs font-semibold text-gray-500 sm:block">
+                <span className="hidden text-xs font-semibold text-gray-500 sm:block ">
                   Wishlist
                 </span>
               </div>
             </Link>
 
-            <Link to="/springmart/user">
-              <div className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
-                <FontAwesomeIcon icon={faUser} size="lg" />
+            <div className="relative group">
+              <Link to="/springmart/user">
+                <div className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
+                  <FontAwesomeIcon icon={faUser} size="lg" />
 
-                <span className="hidden text-xs font-semibold text-gray-500 sm:block">
-                  Account
-                </span>
+                  <span className="hidden text-xs font-semibold text-gray-500 sm:block group-hover:text-indigo-500 group-hover:cursor-pointer">
+                    Account
+                  </span>
+                </div>
+              </Link>
+
+              <div className="absolute hidden bg-white border border-gray-200 py-2 z-20 group-hover:block rounded-md">
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
+                  Log Out
+                </Link>
               </div>
-            </Link>
+            </div>
 
             <Link to="/springmart/cart">
               <div className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
