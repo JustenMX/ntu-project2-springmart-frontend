@@ -27,99 +27,32 @@ function ProductCTAContainer() {
             productOriginalPrice="$39.99"
           />
 
-          <div>
-            <a
-              href="#"
-              className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                loading="lazy"
-                alt="Strawberry"
-                className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
+          <ProductCTACard
+            productImgSrc="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+            productImgAlt="Strawberry"
+            productName="Strawberry"
+            productBrand="Cool Brand"
+            productCurrentPrice="$29.99"
+          />
 
-            <div className="flex items-start justify-between gap-2 px-2">
-              <div className="flex flex-col">
-                <a
-                  href="#"
-                  className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
-                >
-                  Strawberry
-                </a>
-                <span className="text-gray-500">by Cool Brand</span>
-              </div>
+          <ProductCTACard
+            productImgSrc="https://images.unsplash.com/photo-1616606103915-dea7be788566?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+            productImgAlt="chips"
+            productName="Love Corn Chips"
+            productBrand="Cool Brand"
+            productCurrentPrice="$9.99"
+          />
 
-              <div className="flex flex-col items-end">
-                <span className="font-bold text-gray-600 lg:text-lg">
-                  $29.99
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1616606103915-dea7be788566?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                loading="lazy"
-                alt="chips"
-                className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div className="flex items-start justify-between gap-2 px-2">
-              <div className="flex flex-col">
-                <a
-                  href="#"
-                  className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
-                >
-                  Love Corn Chips
-                </a>
-                <span className="text-gray-500">by Nice Brand</span>
-              </div>
-
-              <div className="flex flex-col items-end">
-                <span className="font-bold text-gray-600 lg:text-lg">
-                  $35.00
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <a
-              href="#"
-              className="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1580314552228-5a7ce023fc9e?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                loading="lazy"
-                alt="pulsitos"
-                className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div className="flex items-start justify-between gap-2 px-2">
-              <div className="flex flex-col">
-                <a
-                  href="#"
-                  className="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
-                >
-                  Pulsitos
-                </a>
-                <span className="text-gray-500">by Lavish Brand</span>
-              </div>
-
-              <div className="flex flex-col items-end">
-                <span className="font-bold text-gray-600 lg:text-lg">
-                  $49.99
-                </span>
-              </div>
-            </div>
-          </div>
+          <ProductCTACard
+            productImgSrc="https://images.unsplash.com/photo-1580314552228-5a7ce023fc9e?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+            productImgAlt="pulsitos"
+            productDiscount="-20%"
+            productDiscountLabel="New"
+            productName="Pulsitos"
+            productBrand="Cool Brand"
+            productCurrentPrice="$29.99"
+            productOriginalPrice="$49.99"
+          />
         </div>
       </div>
     </div>
