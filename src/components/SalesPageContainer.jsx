@@ -1,14 +1,12 @@
-//
-
 import ProductListingCard from "./ProductListingCard";
 
-function ProductListingContainer() {
+function SalesPageContainer() {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div className="mb-6 flex items-end justify-between gap-4">
           <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">
-            Products
+            Hot Products on Sale!
           </h2>
 
           <a
@@ -34,25 +32,31 @@ function ProductListingContainer() {
           <ProductListingCard
             productListingImgSrc="https://images.unsplash.com/photo-1550258987-190a2d41a8ba"
             productListingImgAlt="pineapple"
+            productListingPromotionLabel="sale"
             productListingProductName="Pineapple"
             productListingProductBrand="Under the Sea"
             productListingCurrentPrice="15.00"
+            productListingOriginalPrice="30.00"
           />
 
           <ProductListingCard
             productListingImgSrc="https://images.unsplash.com/photo-1550258987-190a2d41a8ba"
             productListingImgAlt="pineapple"
+            productListingPromotionLabel="sale"
             productListingProductName="Pineapple"
             productListingProductBrand="Under the Sea"
             productListingCurrentPrice="15.00"
+            productListingOriginalPrice="30.00"
           />
 
           <ProductListingCard
             productListingImgSrc="https://images.unsplash.com/photo-1550258987-190a2d41a8ba"
             productListingImgAlt="pineapple"
+            productListingPromotionLabel="sale"
             productListingProductName="Pineapple"
             productListingProductBrand="Under the Sea"
             productListingCurrentPrice="15.00"
+            productListingOriginalPrice="30.00"
           />
         </div>
       </div>
@@ -60,4 +64,4 @@ function ProductListingContainer() {
   );
 }
 
-export default ProductListingContainer;
+export default SalesPageContainer;

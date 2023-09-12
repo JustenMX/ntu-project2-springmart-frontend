@@ -45,9 +45,12 @@ function ProductListingCard(props) {
         <span className="font-bold text-gray-800 lg:text-lg">
           ${productListingCurrentPrice}
         </span>
-        <span className="mb-0.5 text-red-500 line-through text-sm">
-          ${productListingOriginalPrice}
-        </span>
+
+        {productListingOriginalPrice && (
+          <span className="mb-0.5 text-red-500 line-through text-sm">
+            ${productListingOriginalPrice}
+          </span>
+        )}
       </div>
     </div>
   );
