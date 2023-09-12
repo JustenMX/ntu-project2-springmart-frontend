@@ -3,8 +3,8 @@ import Footer from "./Footer";
 import Navigation from "./Navigation";
 import NewsLetterCTA from "./NewsLetterCTA";
 import SpringMartHero from "./SpringMartHero";
-import CategoryCTA from "./CategoryCTA";
 import ProductCTAContainer from "./ProductCTAContainer";
+import CategoryCTAContainer from "./CategoryCTAContainer";
 
 function SpringMartContainer() {
   return (
@@ -17,7 +17,7 @@ function SpringMartContainer() {
 
       <BannerCTA />
 
-      <CategoryCTA />
+      <CategoryCTAContainer />
 
       <NewsLetterCTA />
 
