@@ -15,68 +15,23 @@ function CategoryCTAContainer() {
             categoryName="Beverage"
           />
 
-          <div>
-            <a
-              href="#"
-              className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1601599967100-f16100982063?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                loading="lazy"
-                alt="Photo by Eduardo Soares"
-                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
+          <CategoryCTACard
+            categoryImgSrc="https://images.unsplash.com/photo-1601599967100-f16100982063?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+            categoryImgAlt="Photo by Eduardo Soares"
+            categoryName="Frozen"
+          />
 
-              <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                <span className="text-gray-500">Spring Mart</span>
-                <span className="text-lg font-bold text-gray-800 lg:text-xl">
-                  Frozen
-                </span>
-              </div>
-            </a>
-          </div>
+          <CategoryCTACard
+            categoryImgSrc="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
+            categoryImgAlt="Photo by Jeff Siepman"
+            categoryName="Snacks"
+          />
 
-          <div>
-            <a
-              href="#"
-              className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-                loading="lazy"
-                alt="Photo by Jeff Siepman"
-                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-
-              <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                <span className="text-gray-500">Spring Mart</span>
-                <span className="text-lg font-bold text-gray-800 lg:text-xl">
-                  Snacks
-                </span>
-              </div>
-            </a>
-          </div>
-
-          <div>
-            <a
-              href="#"
-              className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 p-4 shadow-lg"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1631524254770-03abe3f42a0d?auto=format&q=75&fit=crop&w=600&h=700"
-                loading="lazy"
-                alt="Photo by Colourblind Kevin"
-                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-
-              <div className="relative flex w-full flex-col rounded-lg bg-white p-4 text-center">
-                <span className="text-gray-500">Spring Mart</span>
-                <span className="text-lg font-bold text-gray-800 lg:text-xl">
-                  Essentials
-                </span>
-              </div>
-            </a>
-          </div>
+          <CategoryCTACard
+            categoryImgSrc="https://images.unsplash.com/photo-1631524254770-03abe3f42a0d?auto=format&q=75&fit=crop&w=600&h=700"
+            categoryImgAlt="Photo by Colourblind Kevin"
+            categoryName="Essentials"
+          />
         </div>
       </div>
     </div>

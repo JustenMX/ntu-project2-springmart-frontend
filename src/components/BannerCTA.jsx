@@ -11,9 +11,9 @@ function BannerCTA() {
             </h2>
 
             <p className="mb-8 max-w-md text-gray-400">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text.
+              Welcome to the hottest sale of the season, where you can enjoy
+              discounts of up to 70% off. Dive into summer with unbeatable deals
+              that&apos;ll make your days brighter and your wallet happier.
             </p>
 
             <div className="mt-auto">
