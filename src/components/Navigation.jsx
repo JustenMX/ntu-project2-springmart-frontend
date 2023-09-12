@@ -1,9 +1,23 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faUser,
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
+
 function Navigation() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <>
-      <header className="mb-8 border-b">
+      <header className="mb-8 border-b relative">
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-4 md:px-8">
           <Link to="/springmart">
             <span
@@ -13,7 +27,7 @@ function Navigation() {
               <img
                 src="src/assets/logo.svg"
                 alt="logo"
-                className="h-auto max-w-full sm:h-24"
+                className="h-auto w-12 sm:w-auto max-w-full sm:h-12"
               />
               Spring Mart
             </span>
@@ -44,83 +58,42 @@ function Navigation() {
           </nav>
           {/* nav end */}
 
-          {/* button start */}
-          <div className="flex divide-x border-r sm:border-l">
-            <a
-              href="#"
-              className="hidden h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:flex sm:h-20 sm:w-20 md:h-24 md:w-24"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-800"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
+          {/* focus nav starts */}
+          <div className="flex divide-x border-r sm:border-l relative z-10">
+            <Link to="/springmart/wishlist">
+              <div className="hidden h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:flex sm:h-20 sm:w-20 md:h-24 md:w-24">
+                <FontAwesomeIcon icon={faHeart} size="lg" />
 
-              <span className="hidden text-xs font-semibold text-gray-500 sm:block">
-                Wishlist
-              </span>
-            </a>
+                <span className="hidden text-xs font-semibold text-gray-500 sm:block">
+                  Wishlist
+                </span>
+              </div>
+            </Link>
 
-            <a
-              href="#"
-              className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-800"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
+            <Link to="/springmart/user">
+              <div className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
+                <FontAwesomeIcon icon={faUser} size="lg" />
 
-              <span className="hidden text-xs font-semibold text-gray-500 sm:block">
-                Account
-              </span>
-            </a>
+                <span className="hidden text-xs font-semibold text-gray-500 sm:block">
+                  Account
+                </span>
+              </div>
+            </Link>
 
-            <a
-              href="#"
-              className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-800"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                />
-              </svg>
+            <Link to="/springmart/cart">
+              <div className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
+                <FontAwesomeIcon icon={faCartShopping} size="lg" />
 
-              <span className="hidden text-xs font-semibold text-gray-500 sm:block">
-                Cart
-              </span>
-            </a>
+                <span className="hidden text-xs font-semibold text-gray-500 sm:block">
+                  Cart
+                </span>
+              </div>
+            </Link>
 
             <button
               type="button"
               className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:hidden"
+              onClick={toggleMobileMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,8 +112,37 @@ function Navigation() {
                 Menu
               </span>
             </button>
+            {isMobileMenuOpen && (
+              <div className="absolute top-16 left-0 w-full bg-white border border-gray-200 py-2 z-20">
+                <Link
+                  to="/springmart"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/springmart/category"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Categories
+                </Link>
+                <Link
+                  to="/springmart/sales"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Sale
+                </Link>
+                <Link
+                  to="/springmart/about"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  About
+                </Link>
+              </div>
+            )}
           </div>
-          {/* button end */}
+
+          {/* focus nav end */}
         </div>
       </header>
     </>
