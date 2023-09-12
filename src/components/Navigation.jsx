@@ -27,7 +27,7 @@ function Navigation() {
               <img
                 src="src/assets/logo.svg"
                 alt="logo"
-                className="h-auto w-12 sm:w-auto max-w-full sm:h-12"
+                className="h-auto w-12 sm:w-auto max-w-full sm:h-24"
               />
               Spring Mart
             </span>

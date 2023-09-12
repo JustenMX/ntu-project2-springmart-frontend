@@ -18,7 +18,7 @@ function Footer() {
                 <img
                   src="src/assets/logo.svg"
                   alt="logo"
-                  className="h-auto max-w-full sm:h-10"
+                  className="h-auto w-12 sm:w-auto max-w-full sm:h-24"
                 />
                 Spring Mart
               </span>
