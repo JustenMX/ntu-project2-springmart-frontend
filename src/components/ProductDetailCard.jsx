@@ -7,10 +7,10 @@ function ProductDetailCard(props) {
     productImgSrcOne,
     productImgAltOne,
     productPromotionLabel,
-    productImgSrcTwo,
-    productImgAltTwo,
-    productImgSrcThree,
-    productImgAltThree,
+    // productImgSrcTwo,
+    // productImgAltTwo,
+    // productImgSrcThree,
+    // productImgAltThree,
     productDetailBrand,
     productDetailName,
     productDetailCurrentPrice,
@@ -36,7 +36,8 @@ function ProductDetailCard(props) {
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        {/* START - FOR FUTURE DEVELOPMENT - TO ADD 2 MORE IMAGES */}
+        {/* <div className="grid grid-cols-2 gap-4">
           <div className="overflow-hidden rounded-lg bg-gray-100">
             <img
               src={`${productImgSrcTwo}?auto=format`}
@@ -54,7 +55,8 @@ function ProductDetailCard(props) {
               className="h-full w-full object-cover object-center"
             />
           </div>
-        </div>
+        </div> */}
+        {/* END - FOR FUTURE DEVELOPMENT - TO ADD 2 MORE IMAGES */}
       </div>
 
       <div className="md:py-8">
