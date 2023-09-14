@@ -1,51 +1,68 @@
-function CartCheckoutProduct() {
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
+function CartCheckoutProduct(props) {
+  const {
+    cartProductImgSrc,
+    cartProductImgAlt,
+    productLink,
+    cartProductName,
+    cartProductBrand,
+    cartProductPrice,
+  } = props;
+
+  const [count, setCount] = useState(1);
+
+  const handleAddQty = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const handleMinusQty = () => {
+    setCount((prevCount) => {
+      if (prevCount <= 0) {
+        return 0;
+      } else {
+        return prevCount + 1;
+      }
+    });
+  };
+
+  const updateProductPrice = count * cartProductPrice;
+
   return (
     <div className="flex flex-wrap gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">
-      <a
-        href="#"
-        className="group relative block h-48 w-32 overflow-hidden bg-gray-100 sm:h-56 sm:w-40"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1612681621979-fffe5920dbe8?auto=format&q=75&fit=crop&w=200"
-          loading="lazy"
-          alt="Photo by Thái An"
-          className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-        />
-      </a>
+      <div className="group relative block h-48 w-32 overflow-hidden bg-gray-100 sm:h-56 sm:w-40">
+        <Link to={productLink}>
+          <img
+            src={cartProductImgSrc}
+            loading="lazy"
+            alt={cartProductImgAlt}
+            className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+          />
+        </Link>
+      </div>
 
       <div className="flex flex-1 flex-col justify-between py-4">
         <div>
-          <a
-            href="#"
-            className="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
-          >
-            Top
-          </a>
+          <Link to={productLink}>
+            <div className="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl">
+              {cartProductName}
+            </div>
+          </Link>
 
-          <span className="block text-gray-500">Size: S</span>
-          <span className="block text-gray-500">Color: White</span>
+          <span className="block text-gray-500">{cartProductBrand}</span>
         </div>
 
         <div>
           <span className="mb-1 block font-bold text-gray-800 md:text-lg">
-            $15.00
+            ${cartProductPrice}
           </span>
 
           <span className="flex items-center gap-1 text-sm text-gray-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-green-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <FontAwesomeIcon icon={faCheck} style={{ color: "#c4bc00" }} />
             In stock
           </span>
         </div>
@@ -54,17 +71,21 @@ function CartCheckoutProduct() {
       <div className="flex w-full justify-between border-t p-4 sm:w-auto sm:border-none sm:pl-0 lg:p-6 lg:pl-0">
         <div className="flex flex-col items-start gap-2">
           <div className="flex h-12 w-20 overflow-hidden rounded border">
-            <input
-              type="number"
-              value="1"
-              className="w-full px-4 py-2 outline-none ring-inset ring-indigo-300 transition duration-100 focus:ring"
-            />
+            <div className="w-full px-4 py-2 outline-none ring-inset ring-indigo-300 transition duration-100 focus:ring">
+              {count}
+            </div>
 
             <div className="flex flex-col divide-y border-l">
-              <button className="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
+              <button
+                className="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200"
+                onClick={handleAddQty}
+              >
                 +
               </button>
-              <button className="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
+              <button
+                className="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200"
+                onClick={handleMinusQty}
+              >
                 -
               </button>
             </div>
@@ -77,7 +98,7 @@ function CartCheckoutProduct() {
 
         <div className="ml-4 pt-3 md:ml-8 md:pt-2 lg:ml-16">
           <span className="block font-bold text-gray-800 md:text-lg">
-            $15.00
+            ${updateProductPrice}
           </span>
         </div>
       </div>

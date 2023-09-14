@@ -1,5 +1,5 @@
 import CartCheckoutFunnel from "./CartCheckoutFunnel";
-import CartCheckoutCard from "./CartCheckoutProduct";
+import CartCheckoutProduct from "./CartCheckoutProduct";
 
 function CartCheckoutContainer() {
   return (
@@ -13,7 +13,23 @@ function CartCheckoutContainer() {
           </div>
 
           <div className="mb-6 flex flex-col gap-4 sm:mb-8 md:gap-6">
-            <CartCheckoutCard />
+            <CartCheckoutProduct
+              cartProductImgSrc="https://res.cloudinary.com/doniqecd2/image/upload/v1694624325/SPRINGMART/BEVERAGE/ocjr7pswlaiko9mzjpug.jpg"
+              cartProductImgAlt="bottle"
+              productLink="/"
+              cartProductName="Holo Yup"
+              cartProductBrand="brand"
+              cartProductPrice="15.75"
+            />
+
+            <CartCheckoutProduct
+              cartProductImgSrc="https://res.cloudinary.com/doniqecd2/image/upload/v1694624325/SPRINGMART/BEVERAGE/ocjr7pswlaiko9mzjpug.jpg"
+              cartProductImgAlt="bottle"
+              productLink="/"
+              cartProductName="Tornado Turtle"
+              cartProductBrand="brand"
+              cartProductPrice="35.00"
+            />
 
             <CartCheckoutFunnel />
           </div>
