@@ -15,6 +15,8 @@ import UserAccountPage from "./pages/UserAccountPage";
 import CartCheckoutPage from "./pages/CartCheckoutPage";
 import ProductListingPage from "./pages/ProductListingPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import CartCheckoutSuccess from "./pages/CartCheckoutSuccess";
+import CartCheckoutFail from "./pages/CartCheckoutFail";
 
 function App() {
   return (
@@ -40,6 +42,14 @@ function App() {
         <Route path="/springmart/wishlist" element={<WishListPage />} />
         <Route path="/springmart/user" element={<UserAccountPage />} />
         <Route path="/springmart/checkout" element={<CartCheckoutPage />} />
+        <Route
+          path="/springmart/checkout/success"
+          element={<CartCheckoutSuccess />}
+        />
+        <Route
+          path="/springmart/checkout/fail"
+          element={<CartCheckoutFail />}
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
