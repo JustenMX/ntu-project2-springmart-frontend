@@ -16,6 +16,8 @@ function CartCheckoutProduct(props) {
 
   const [count, setCount] = useState(1);
 
+  const updateProductPrice = count * cartProductPrice;
+
   const handleAddQty = () => {
     setCount((prevCount) => prevCount + 1);
   };
@@ -25,12 +27,10 @@ function CartCheckoutProduct(props) {
       if (prevCount <= 0) {
         return 0;
       } else {
-        return prevCount + 1;
+        return prevCount - 1;
       }
     });
   };
-
-  const updateProductPrice = count * cartProductPrice;
 
   return (
     <div className="flex flex-wrap gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">

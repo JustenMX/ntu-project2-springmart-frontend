@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function CartCheckoutFunnel() {
   return (
     <div className="flex flex-col items-end gap-4">
@@ -5,12 +6,12 @@ function CartCheckoutFunnel() {
         <div className="space-y-1">
           <div className="flex justify-between gap-4 text-gray-500">
             <span>Subtotal</span>
-            <span>$129.99</span>
+            <span>$0</span>
           </div>
 
           <div className="flex justify-between gap-4 text-gray-500">
             <span>Shipping</span>
-            <span>$4.99</span>
+            <span>FREE</span>
           </div>
         </div>
 
@@ -20,7 +21,7 @@ function CartCheckoutFunnel() {
 
             <span className="flex flex-col items-end">
               <span className="text-lg font-bold">$134.98 USD</span>
-              <span className="text-sm text-gray-500">including VAT</span>
+              <span className="text-sm text-gray-500">including GST</span>
             </span>
           </div>
         </div>
