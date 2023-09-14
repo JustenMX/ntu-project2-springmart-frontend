@@ -123,7 +123,7 @@ function SpringMartNavigation() {
               </div>
             </div>
 
-            <Link to="/springmart/cart">
+            <Link to="/springmart/checkout">
               <div className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
                 <FontAwesomeIcon icon={faCartShopping} size="lg" />
 
