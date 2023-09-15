@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,14 +17,16 @@ function LandingHero() {
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative px-4 mx-auto max-w-screen-xl text-center z-10">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-7xl">
-            Elevate Your Shopping Experience with Spring Mart
-          </h1>
-          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            Explore a curated selection of products where technology meets
-            style. At Spring Mart, we&apos;re passionate about delivering
-            cutting-edge innovations for your everyday needs.
-          </p>
+          <div>
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-7xl">
+              Elevate Your Shopping Experience with Spring Mart
+            </h1>
+            <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+              Explore a curated selection of products where technology meets
+              style. At Spring Mart, we&apos;re passionate about delivering
+              cutting-edge innovations for your everyday needs.
+            </p>
+          </div>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <button className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
               <Link to={"/auth"}>Get started </Link>
