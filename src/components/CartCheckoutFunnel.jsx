@@ -20,7 +20,7 @@ function CartCheckoutFunnel() {
             <span className="text-lg font-bold">Total</span>
 
             <span className="flex flex-col items-end">
-              <span className="text-lg font-bold">$134.98 USD</span>
+              <span className="text-lg font-bold">$134.98 SGD</span>
               <span className="text-sm text-gray-500">including GST</span>
             </span>
           </div>
