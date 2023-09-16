@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PrivacyContent from "./PrivacyContent";
+import logo from "../assets/logo.svg";
 function PrivacyContainer() {
   return (
     <div>
@@ -15,12 +16,10 @@ function PrivacyContainer() {
 
             <div className="hidden lg:relative lg:block lg:p-12">
               <Link to="/">
-                <span className="sr-only">Home</span>
-
                 <img
-                  src="src/assets/logo.svg"
+                  src={logo}
                   alt="logo"
-                  className="h-auto max-w-full sm:h-32"
+                  className="h-auto w-12 sm:w-auto max-w-full sm:h-24"
                 />
               </Link>
 
