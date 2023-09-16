@@ -11,6 +11,11 @@ import { faCancel, faSearchLocation } from "@fortawesome/free-solid-svg-icons";
 function RegistrationForm() {
   const [address, setAddress] = useState("");
 
+  /**
+   * ==============================================
+   * Get Address From Postal Code
+   * ==============================================
+   */
   const getAddressFromPostalcode = async (event) => {
     event.preventDefault();
     const postalCode = formik.values.postalCode;

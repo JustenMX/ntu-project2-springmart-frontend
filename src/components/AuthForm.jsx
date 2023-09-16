@@ -1,9 +1,52 @@
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import bcrypt from "bcryptjs";
+import springmartAPI from "../api/springmartAPI";
 function AuthForm() {
+  /**
+   * ==============================================
+   * Formik with Yup validation
+   * ==============================================
+   */
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+
+    validationSchema: Yup.object({
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().required("Required"),
+    }),
+
+    onSubmit: async (values) => {
+      try {
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(values.password, 10);
+        values.password = hashedPassword;
+        // Post Method
+        const response = await springmartAPI.post("/auth", values);
+        console.log("API Response:", response.data);
+
+        if (response.data.success) {
+          alert("Login successful! - Welcome to Spring Mart");
+          history.push("/springmart");
+        } else {
+          alert("Invalid email or password. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error", error);
+      }
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   return (
     <div>
       <form
-        action=""
+        onSubmit={formik.handleSubmit}
         className="mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 bg-white bg-opacity-90 backdrop-blur-md"
       >
         <p className="text-lg font-medium text-gray-900">
@@ -13,9 +56,15 @@ function AuthForm() {
         <div className="relative">
           <input
             type="email"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            id="email"
+            name="email"
+            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-black"
             placeholder="Enter email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
           />
+
           <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,14 +81,25 @@ function AuthForm() {
               />
             </svg>
           </span>
+          {formik.touched.email && formik.errors.email ? (
+            <div className="flex flex-row m-2 text-sm font-semibold text-red-600">
+              {formik.errors.email}
+            </div>
+          ) : null}
         </div>
 
         <div className="relative">
           <input
             type="password"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            id="Password"
+            name="password"
+            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-black"
             placeholder="Enter password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
           />
+
           <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,16 +122,19 @@ function AuthForm() {
               />
             </svg>
           </span>
+          {formik.touched.password && formik.errors.password ? (
+            <div className="flex flex-row m-2 text-sm font-semibold text-red-600">
+              {formik.errors.password}
+            </div>
+          ) : null}
         </div>
 
-        <Link to="/springmart">
-          <button
-            type="submit"
-            className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white my-5"
-          >
-            Sign in
-          </button>
-        </Link>
+        <button
+          type="submit"
+          className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white my-5"
+        >
+          Sign in
+        </button>
 
         <p className="text-sm text-gray-500">
           No account?
