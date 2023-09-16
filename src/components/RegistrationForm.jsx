@@ -1,11 +1,87 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import openmapAPI from "../api/openmapAPI";
+
 function RegistrationForm() {
+  const [address, setAddress] = useState("");
+
+  const getAddressFromPostalcode = async (event) => {
+    event.preventDefault();
+    const postalCode = formik.values.postalcode;
+    try {
+      const response = await openmapAPI.get(
+        `/search?searchVal=${postalCode}&returnGeom=N&getAddrDetails=Y&pageNum=1`
+      );
+      console.log(response.data.results?.[0]);
+      setAddress(response.data.results?.[0]);
+      formik.setFieldValue("address", response.data.results?.[0]?.ADDRESS);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  /**
+   * ==============================================
+   * Formik with Yup validation
+   * ==============================================
+   */
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      address: "",
+      postalcode: "138664",
+      optMarketing: false,
+      joinDate: new Date().toISOString,
+      isSubmitting: true,
+      isValidating: true,
+    },
+
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .lowercase()
+        .trim()
+        .required("Required"),
+      lastName: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .lowercase()
+        .trim()
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().required("Required"),
+      passwordConfirmation: Yup.string()
+        .label("confirm password")
+        .required("Required")
+        .oneOf([Yup.ref("password"), null], "Passwords must match"),
+      postalcode: Yup.string()
+        .matches(/^[0-9]{6}$/, "Must be exactly 6 digits")
+        .required("Required"),
+    }),
+
+    onSubmit: (values) => {
+      const currentDate = new Date().toISOString();
+      values.joinDate = currentDate;
+      // try {
+      //   const response = await axios.post
+      // }
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   return (
     <div>
-      <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+      <form
+        onSubmit={formik.handleSubmit}
+        className="mt-8 grid grid-cols-6 gap-6"
+      >
         <div className="col-span-6 sm:col-span-3">
           <label
-            htmlFor="FirstName"
+            htmlFor="firstName"
             className="block text-sm font-medium text-gray-700"
           >
             First Name
@@ -13,15 +89,23 @@ function RegistrationForm() {
 
           <input
             type="text"
-            id="FirstName"
-            name="first_name"
+            id="firstName"
+            name="firstName"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
           />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <div className="text-sm font-semibold text-red-600">
+              {formik.errors.firstName}
+            </div>
+          ) : null}
         </div>
 
         <div className="col-span-6 sm:col-span-3">
           <label
-            htmlFor="LastName"
+            htmlFor="lastName"
             className="block text-sm font-medium text-gray-700"
           >
             Last Name
@@ -29,15 +113,23 @@ function RegistrationForm() {
 
           <input
             type="text"
-            id="LastName"
-            name="last_name"
+            id="lastName"
+            name="lastName"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
           />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div className="text-sm font-semibold text-red-600">
+              {formik.errors.lastName}
+            </div>
+          ) : null}
         </div>
 
         <div className="col-span-6">
           <label
-            htmlFor="Email"
+            htmlFor="email"
             className="block text-sm font-medium text-gray-700"
           >
             Email
@@ -45,15 +137,24 @@ function RegistrationForm() {
 
           <input
             type="email"
-            id="Email"
+            id="email"
             name="email"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
           />
+
+          {formik.touched.email && formik.errors.email ? (
+            <div className="text-sm font-semibold text-red-600">
+              {formik.errors.email}
+            </div>
+          ) : null}
         </div>
 
         <div className="col-span-6 sm:col-span-3">
           <label
-            htmlFor="Password"
+            htmlFor="password"
             className="block text-sm font-medium text-gray-700"
           >
             Password
@@ -64,12 +165,21 @@ function RegistrationForm() {
             id="Password"
             name="password"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
           />
+
+          {formik.touched.password && formik.errors.password ? (
+            <div className="text-sm font-semibold text-red-600">
+              {formik.errors.password}
+            </div>
+          ) : null}
         </div>
 
         <div className="col-span-6 sm:col-span-3">
           <label
-            htmlFor="PasswordConfirmation"
+            htmlFor="passwordConfirmation"
             className="block text-sm font-medium text-gray-700"
           >
             Password Confirmation
@@ -77,19 +187,96 @@ function RegistrationForm() {
 
           <input
             type="password"
-            id="PasswordConfirmation"
-            name="password_confirmation"
+            id="passwordConfirmation"
+            name="passwordConfirmation"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.passwordConfirmation}
           />
+
+          {formik.touched.passwordConfirmation &&
+          formik.errors.passwordConfirmation ? (
+            <div className="text-sm font-semibold text-red-600">
+              {formik.errors.passwordConfirmation}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="col-span-6 sm:col-span-3">
+          <label
+            htmlFor="postalcode"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Postal Code
+          </label>
+          <input
+            type="text"
+            id="postalcode"
+            name="postalcode"
+            className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.postalcode}
+          />
+          {formik.touched.postalcode && formik.errors.postalcode ? (
+            <div className="text-sm font-semibold text-red-600">
+              {formik.errors.postalcode}
+            </div>
+          ) : null}
+        </div>
+
+        {/* Search Address Button */}
+
+        <div className="col-span-6 sm:col-span-3 flex items-start">
+          {!formik.errors.postalcode ? (
+            <button
+              className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+              onClick={getAddressFromPostalcode}
+            >
+              Search
+            </button>
+          ) : (
+            <button className="inline-block shrink-0 rounded-md border border-red-600 bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-blue-500">
+              Invalid
+            </button>
+          )}
         </div>
 
         <div className="col-span-6">
-          <label htmlFor="MarketingAccept" className="flex gap-4">
+          <label
+            htmlFor="address"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Address
+          </label>
+
+          {address ? (
+            <input
+              type="text"
+              id="address"
+              name="address"
+              className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+              value={formik.values.address}
+              readOnly
+            />
+          ) : (
+            <div>
+              <img src="src/assets/loading.gif" alt="loading" />
+            </div>
+          )}
+        </div>
+
+        <div className="col-span-6">
+          <label htmlFor="optMarketing" className="flex gap-4">
             <input
               type="checkbox"
-              id="MarketingAccept"
-              name="marketing_accept"
+              id="optMarketing"
+              name="optMarketing"
               className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.optMarketing}
             />
 
             <span className="text-sm text-gray-700">
@@ -114,7 +301,10 @@ function RegistrationForm() {
         </div>
 
         <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-          <button className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+          <button
+            className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+            type="submit"
+          >
             Create an account
           </button>
 
