@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import openmapAPI from "../api/openmapAPI";
+import springmartAPI from "../api/springmartAPI";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCancel, faSearchLocation } from "@fortawesome/free-solid-svg-icons";
 
 function RegistrationForm() {
   const [address, setAddress] = useState("");
@@ -34,6 +37,7 @@ function RegistrationForm() {
       email: "",
       password: "",
       address: "",
+      unitno: "",
       postalcode: "138664",
       optMarketing: false,
       joinDate: new Date().toISOString,
@@ -61,14 +65,30 @@ function RegistrationForm() {
       postalcode: Yup.string()
         .matches(/^[0-9]{6}$/, "Must be exactly 6 digits")
         .required("Required"),
+      unitno: Yup.string()
+        .matches(
+          /^([0-9]{1,2}|[0-9]{1,2}-[0-9]{1,2}(-[0-9]{1,2})?)$/,
+          "Invalid unit number format"
+        )
+        .required("Required"),
     }),
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const currentDate = new Date().toISOString();
       values.joinDate = currentDate;
-      // try {
-      //   const response = await axios.post
-      // }
+
+      try {
+        const response = await springmartAPI.post("/register", values);
+
+        if (response.status === 200) {
+          alert("User registered successfully");
+        } else {
+          throw new Error("Network Error");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -79,6 +99,7 @@ function RegistrationForm() {
         onSubmit={formik.handleSubmit}
         className="mt-8 grid grid-cols-6 gap-6"
       >
+        {/* First Name */}
         <div className="col-span-6 sm:col-span-3">
           <label
             htmlFor="firstName"
@@ -103,6 +124,8 @@ function RegistrationForm() {
           ) : null}
         </div>
 
+        {/* Last Name */}
+
         <div className="col-span-6 sm:col-span-3">
           <label
             htmlFor="lastName"
@@ -126,6 +149,8 @@ function RegistrationForm() {
             </div>
           ) : null}
         </div>
+
+        {/* Email */}
 
         <div className="col-span-6">
           <label
@@ -152,6 +177,8 @@ function RegistrationForm() {
           ) : null}
         </div>
 
+        {/* Password */}
+
         <div className="col-span-6 sm:col-span-3">
           <label
             htmlFor="password"
@@ -177,6 +204,7 @@ function RegistrationForm() {
           ) : null}
         </div>
 
+        {/* Password Confirmation */}
         <div className="col-span-6 sm:col-span-3">
           <label
             htmlFor="passwordConfirmation"
@@ -203,6 +231,7 @@ function RegistrationForm() {
           ) : null}
         </div>
 
+        {/* Postal Code */}
         <div className="col-span-6 sm:col-span-3">
           <label
             htmlFor="postalcode"
@@ -210,38 +239,68 @@ function RegistrationForm() {
           >
             Postal Code
           </label>
+          <div className="flex flex-col">
+            <div className="flex items-center">
+              <input
+                type="text"
+                id="postalcode"
+                name="postalcode"
+                className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.postalcode}
+              />
+
+              {!formik.errors.postalcode ? (
+                <button
+                  className="inline-block ml-2 px-4 py-2 rounded-md border border-blue-600 bg-blue-600 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+                  onClick={getAddressFromPostalcode}
+                >
+                  <FontAwesomeIcon icon={faSearchLocation} />
+                </button>
+              ) : (
+                <button
+                  className="inline-block ml-2 px-4 py-2 rounded-md border border-red-600 bg-red-600 text-sm font-medium text-white transition hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-blue-500"
+                  onClick={getAddressFromPostalcode}
+                >
+                  <FontAwesomeIcon icon={faCancel} />
+                </button>
+              )}
+            </div>
+            {formik.touched.postalcode && formik.errors.postalcode ? (
+              <div className="text-sm font-semibold text-red-600">
+                {formik.errors.postalcode}
+              </div>
+            ) : null}
+          </div>
+        </div>
+
+        {/* Unit No */}
+        <div className="col-span-6 sm:col-span-3">
+          <label
+            htmlFor="unitno"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Unit No
+          </label>
+
           <input
             type="text"
-            id="postalcode"
-            name="postalcode"
+            id="unitno"
+            name="unitno"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.postalcode}
+            value={formik.values.unitno}
           />
-          {formik.touched.postalcode && formik.errors.postalcode ? (
+          {formik.touched.unitno && formik.errors.unitno ? (
             <div className="text-sm font-semibold text-red-600">
-              {formik.errors.postalcode}
+              {formik.errors.unitno}
             </div>
           ) : null}
         </div>
 
-        {/* Search Address Button */}
-
-        <div className="col-span-6 sm:col-span-3 flex items-start">
-          {!formik.errors.postalcode ? (
-            <button
-              className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-              onClick={getAddressFromPostalcode}
-            >
-              Search
-            </button>
-          ) : (
-            <button className="inline-block shrink-0 rounded-md border border-red-600 bg-red-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-blue-500">
-              Invalid
-            </button>
-          )}
-        </div>
+        {/* Address */}
 
         <div className="col-span-6">
           <label
