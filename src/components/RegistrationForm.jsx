@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import bcrypt from "bcryptjs";
 import openmapAPI from "../api/openmapAPI";
 import springmartAPI from "../api/springmartAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +13,7 @@ function RegistrationForm() {
 
   const getAddressFromPostalcode = async (event) => {
     event.preventDefault();
-    const postalCode = formik.values.postalcode;
+    const postalCode = formik.values.postalCode;
     try {
       const response = await openmapAPI.get(
         `/search?searchVal=${postalCode}&returnGeom=N&getAddrDetails=Y&pageNum=1`
@@ -37,8 +38,8 @@ function RegistrationForm() {
       email: "",
       password: "",
       address: "",
-      unitno: "",
-      postalcode: "138664",
+      unitNo: "",
+      postalCode: "138664",
       optMarketing: false,
       joinDate: new Date().toISOString,
       isSubmitting: true,
@@ -57,15 +58,20 @@ function RegistrationForm() {
         .trim()
         .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
-      password: Yup.string().required("Required"),
+      password: Yup.string()
+        .min(8, "Password must be at least 8 characters")
+        .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+        .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+        .matches(/\d/, "Password must contain at least one numeric digit")
+        .required("Password is required"),
       passwordConfirmation: Yup.string()
         .label("confirm password")
         .required("Required")
         .oneOf([Yup.ref("password"), null], "Passwords must match"),
-      postalcode: Yup.string()
+      postalCode: Yup.string()
         .matches(/^[0-9]{6}$/, "Must be exactly 6 digits")
         .required("Required"),
-      unitno: Yup.string()
+      unitNo: Yup.string()
         .matches(
           /^([0-9]{1,2}|[0-9]{1,2}-[0-9]{1,2}(-[0-9]{1,2})?)$/,
           "Invalid unit number format"
@@ -78,7 +84,12 @@ function RegistrationForm() {
       values.joinDate = currentDate;
 
       try {
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(values.password, 10);
+        values.password = hashedPassword;
+        // Post Method
         const response = await springmartAPI.post("/register", values);
+        console.log("API Response:", response.data);
 
         if (response.status === 200) {
           alert("User registered successfully");
@@ -234,7 +245,7 @@ function RegistrationForm() {
         {/* Postal Code */}
         <div className="col-span-6 sm:col-span-3">
           <label
-            htmlFor="postalcode"
+            htmlFor="postalCode"
             className="block text-sm font-medium text-gray-700"
           >
             Postal Code
@@ -243,15 +254,15 @@ function RegistrationForm() {
             <div className="flex items-center">
               <input
                 type="text"
-                id="postalcode"
-                name="postalcode"
+                id="postalCode"
+                name="postalCode"
                 className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.postalcode}
+                value={formik.values.postalCode}
               />
 
-              {!formik.errors.postalcode ? (
+              {!formik.errors.postalCode ? (
                 <button
                   className="inline-block ml-2 px-4 py-2 rounded-md border border-blue-600 bg-blue-600 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
                   onClick={getAddressFromPostalcode}
@@ -267,9 +278,9 @@ function RegistrationForm() {
                 </button>
               )}
             </div>
-            {formik.touched.postalcode && formik.errors.postalcode ? (
+            {formik.touched.postalCode && formik.errors.postalCode ? (
               <div className="text-sm font-semibold text-red-600">
-                {formik.errors.postalcode}
+                {formik.errors.postalCode}
               </div>
             ) : null}
           </div>
@@ -278,7 +289,7 @@ function RegistrationForm() {
         {/* Unit No */}
         <div className="col-span-6 sm:col-span-3">
           <label
-            htmlFor="unitno"
+            htmlFor="unitNo"
             className="block text-sm font-medium text-gray-700"
           >
             Unit No
@@ -286,16 +297,16 @@ function RegistrationForm() {
 
           <input
             type="text"
-            id="unitno"
-            name="unitno"
+            id="unitNo"
+            name="unitNo"
             className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.unitno}
+            value={formik.values.unitNo}
           />
-          {formik.touched.unitno && formik.errors.unitno ? (
+          {formik.touched.unitNo && formik.errors.unitNo ? (
             <div className="text-sm font-semibold text-red-600">
-              {formik.errors.unitno}
+              {formik.errors.unitNo}
             </div>
           ) : null}
         </div>
