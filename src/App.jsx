@@ -24,7 +24,7 @@ function App() {
       <Routes>
         {/* Landing routes */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/authenticate" element={<AuthPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />

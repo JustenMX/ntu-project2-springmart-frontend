@@ -93,7 +93,7 @@ function RegistrationForm() {
         const hashedPassword = await bcrypt.hash(values.password, 10);
         values.password = hashedPassword;
         // Post Method
-        const response = await springmartAPI.post("/register", values);
+        const response = await springmartAPI.post("/user/register", values);
         console.log("API Response:", response.data);
 
         if (response.status === 200) {
@@ -386,7 +386,7 @@ function RegistrationForm() {
           <p className="mt-4 text-sm text-gray-500 sm:mt-0">
             Already have an account?
             <span className="mx-1 underline text-blue-600">
-              <Link to={"/auth"}>Sign in</Link>
+              <Link to={"/authenticate"}>Sign in</Link>
             </span>
           </p>
         </div>

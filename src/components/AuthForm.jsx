@@ -27,7 +27,7 @@ function AuthForm() {
         const hashedPassword = await bcrypt.hash(values.password, 10);
         values.password = hashedPassword;
         // Post Method
-        const response = await springmartAPI.post("/auth", values);
+        const response = await springmartAPI.post("/user/authenticate", values);
         console.log("API Response:", response.data);
 
         if (response.data.success) {
