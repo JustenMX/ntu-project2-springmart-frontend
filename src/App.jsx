@@ -62,7 +62,10 @@ function App() {
           path="/springmart/products/:productId"
           element={<ProductDetailPage />}
         />
-        <Route path="/springmart/sales" element={<SalesPage />} />
+        <Route
+          path="/springmart/sales"
+          element={<SalesPage productList={productList} />}
+        />
         <Route path="/springmart/about" element={<AboutPage />} />
         <Route path="/springmart/wishlist" element={<WishListPage />} />
         <Route path="/springmart/user" element={<UserAccountPage />} />
