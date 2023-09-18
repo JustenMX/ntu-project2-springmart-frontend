@@ -1,4 +1,5 @@
 import "./index.css";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
@@ -17,8 +18,29 @@ import ProductListingPage from "./pages/ProductListingPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartCheckoutSuccess from "./pages/CartCheckoutSuccess";
 import CartCheckoutFail from "./pages/CartCheckoutFail";
+import springmartAPI from "./api/springmartAPI";
 
 function App() {
+  const [productList, setProductList] = useState({});
+
+  /**
+   * ==============================================
+   * FETCH PRODUCTS
+   * ==============================================
+   */
+  useEffect(() => {
+    const getAllProducts = async () => {
+      try {
+        const response = await springmartAPI.get("/product");
+        console.log(response.data);
+        setProductList(response.data);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    getAllProducts();
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -31,7 +53,10 @@ function App() {
         {/* Spring Mart Routes */}
         <Route path="/springmart" element={<SpringMartPage />} />
         <Route path="/springmart/category" element={<CategoryPage />} />
-        <Route path="/springmart/products" element={<ProductListingPage />} />
+        <Route
+          path="/springmart/products"
+          element={<ProductListingPage productList={productList} />}
+        />
         {/* to add a route here when products filtered by category */}
         <Route
           path="/springmart/products/:productId"
