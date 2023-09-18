@@ -100,6 +100,7 @@ function RegistrationForm() {
 
         if (response.status === 200) {
           alert("User registered successfully");
+          history.pushState("/springmart");
         } else {
           throw new Error("Network Error");
         }
