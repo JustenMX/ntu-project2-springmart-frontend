@@ -22,7 +22,7 @@ function ProductListingCard(props) {
             src={`${productListingImgSrc}?auto=format&q=75&fit=crop&w=600`}
             loading="lazy"
             alt={productListingImgAlt}
-            className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            className="h-full w-full  object-center transition duration-200 group-hover:scale-110 object-contain bg-white"
           />
         </Link>
 
