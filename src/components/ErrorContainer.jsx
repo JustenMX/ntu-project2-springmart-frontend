@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 function ErrorContainer() {
   return (
@@ -12,7 +13,7 @@ function ErrorContainer() {
 
       <div className="bg-white p-8 shadow-lg rounded-lg text-center relative z-10">
         <img
-          src="src/assets/logo.svg"
+          src={logo}
           alt="logo"
           className="h-auto max-w-full max-h-[4.5rem] sm:h-18 mx-auto mb-4"
         />
