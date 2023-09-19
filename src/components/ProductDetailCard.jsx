@@ -23,7 +23,7 @@ function ProductDetailCard(props) {
       <div className="space-y-4">
         <div className="relative overflow-hidden rounded-lg bg-gray-100">
           <img
-            src={`${productImgSrcOne}?auto=format`}
+            src={productImgSrcOne}
             loading="lazy"
             alt={productImgAltOne}
             className="h-full w-full object-cover object-center"
