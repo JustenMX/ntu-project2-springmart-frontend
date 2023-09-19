@@ -17,7 +17,7 @@ function ProductListingCard(props) {
   } = props;
   return (
     <div>
-      <div className="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3">
+      <div className="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-transparent lg:mb-3">
         <Link to={`/springmart/products/${params}`}>
           <img
             src={`${productListingImgSrc}?auto=format&q=75&fit=crop&w=600`}

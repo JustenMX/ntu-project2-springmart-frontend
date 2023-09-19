@@ -14,14 +14,14 @@ function ProductDetailCard(props) {
     productDetailBrand,
     productDetailName,
     productDetailCurrentPrice,
-    productDetailOriginalPrice,
+    productDetailOrginalPrice,
     productDetailDescription,
   } = props;
 
   return (
     <>
       <div className="space-y-4">
-        <div className="relative overflow-hidden rounded-lg bg-gray-100">
+        <div className="relative overflow-hidden rounded-lg bg-transparent">
           <img
             src={productImgSrcOne}
             loading="lazy"
@@ -31,7 +31,7 @@ function ProductDetailCard(props) {
 
           {productPromotionLabel && (
             <span className="absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white">
-              {productPromotionLabel}
+              Sale
             </span>
           )}
         </div>
@@ -72,11 +72,12 @@ function ProductDetailCard(props) {
         <div className="mb-4">
           <div className="flex items-end gap-2">
             <span className="text-xl font-bold text-gray-800 md:text-2xl">
-              {productDetailCurrentPrice}
+              ${productDetailCurrentPrice}
             </span>
-            {productDetailOriginalPrice && (
+
+            {productPromotionLabel && (
               <span className="mb-0.5 text-red-500 line-through">
-                {productDetailOriginalPrice}
+                ${productDetailOrginalPrice}
               </span>
             )}
           </div>
@@ -91,7 +92,7 @@ function ProductDetailCard(props) {
         </div>
 
         <div className="flex gap-2.5">
-          <button className="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base">
+          <button className="inline-block flex-1 rounded-lg bg-amber-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-amber-600 focus-visible:ring active:bg-amber-700 sm:flex-none md:text-base">
             Add to cart
           </button>
 

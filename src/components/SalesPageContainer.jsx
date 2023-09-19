@@ -34,6 +34,7 @@ function SalesPageContainer(props) {
                   productListingProductBrand={product.brand}
                   productListingCurrentPrice={product.currentPrice}
                   productListingOriginalPrice={product.originalPrice}
+                  params={product.id}
                 />
               </div>
             ))}
