@@ -13,11 +13,12 @@ function ProductListingCard(props) {
     productListingCurrentPrice,
     productListingOriginalPrice,
     productDeleteAllowed,
+    params,
   } = props;
   return (
     <div>
       <div className="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3">
-        <Link to="/springmart/products">
+        <Link to={`/springmart/products/${params}`}>
           <img
             src={`${productListingImgSrc}?auto=format&q=75&fit=crop&w=600`}
             loading="lazy"
@@ -44,7 +45,7 @@ function ProductListingCard(props) {
       </div>
 
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-1 text-gray-500 lg:text-lg">
-        <Link to="/springmart/products">
+        <Link to={`/springmart/products/${params}`}>
           <div className="hover:gray-800 lg:mb-0.5 lg:mr-2">
             {productListingProductName}
           </div>

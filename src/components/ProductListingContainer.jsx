@@ -1,9 +1,17 @@
 /* eslint-disable react/prop-types */
-
+import { useLocation } from "react-router-dom";
 import ProductListingCard from "./ProductListingCard";
 
 function ProductListingContainer(props) {
   const { productList } = props;
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get("category");
+
+  const filteredProducts = category
+    ? productList.filter((product) => product.category === category)
+    : productList;
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -24,7 +32,7 @@ function ProductListingContainer(props) {
         <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
           {/* Products listed here */}
 
-          {productList.map((product) => (
+          {filteredProducts.map((product) => (
             <div key={product.id}>
               <ProductListingCard
                 productListingImgSrc={product.imgUrl}
@@ -34,6 +42,7 @@ function ProductListingContainer(props) {
                 productListingProductBrand={product.brand}
                 productListingCurrentPrice={product.currentPrice}
                 productListingOriginalPrice={product.originalPrice}
+                params={product.id}
               />
             </div>
           ))}
