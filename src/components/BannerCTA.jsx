@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function BannerCTA() {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -17,12 +18,11 @@ function BannerCTA() {
             </p>
 
             <div className="mt-auto">
-              <a
-                href="#"
-                className="inline-block rounded-lg bg-white px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base"
-              >
-                Save now
-              </a>
+              <Link to="/springmart/sales">
+                <button className="inline-block rounded-lg bg-white px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base">
+                  Save now
+                </button>
+              </Link>
             </div>
           </div>
           <div className="order-first h-48 w-full bg-gray-700 sm:order-none sm:h-auto sm:w-1/2 lg:w-3/5">

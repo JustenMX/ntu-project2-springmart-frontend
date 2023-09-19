@@ -6,22 +6,19 @@ function CategoryPageCard(props) {
   return (
     <div>
       <div className="relative w-auto h-32 mb-2 bg-gray-100 shadow-lg lg:mb-3">
-        <a href="#" className="block w-full h-full overflow-hidden rounded-lg">
+        <div className="block w-full h-full overflow-hidden rounded-lg">
           <img
             src={`${categoryImgSrc}?auto=format&q=75&fit=crop&crop=top&w=600&h=700`}
             loading="lazy"
             alt="categorybg"
             className="h-full w-full object-cover object-center transition duration-200"
           />
-        </a>
+        </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-2 bg-black bg-opacity-50 text-white text-center">
-          <a
-            href="#"
-            className="block text-lg font-bold transition duration-100 hover:text-gray-500"
-          >
+          <button className="block text-lg font-bold transition duration-100 hover:text-gray-500">
             {categoryName}
-          </a>
+          </button>
         </div>
       </div>
     </div>

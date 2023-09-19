@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import BannerCTA from "./BannerCTA";
 import SpringMartFooter from "../components/SpringMartFooter";
 import NewsLetterCTA from "./NewsLetterCTA";
