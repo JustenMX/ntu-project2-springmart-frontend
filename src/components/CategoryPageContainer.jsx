@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import CategoryPageCard from "./CategoryPageCard";
 
 function CategoryPageContainer() {
@@ -27,10 +28,12 @@ function CategoryPageContainer() {
         </div>
 
         <div className="grid gap-x-4 gap-y-6 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
-          <CategoryPageCard
-            categoryImgSrc="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc"
-            categoryName="Beverage"
-          />
+          <Link to="/springmart/product?category=beverage">
+            <CategoryPageCard
+              categoryImgSrc="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc"
+              categoryName="Beverage"
+            />
+          </Link>
 
           <CategoryPageCard
             categoryImgSrc="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc"

@@ -57,7 +57,6 @@ function App() {
           path="/springmart/products"
           element={<ProductListingPage productList={productList} />}
         />
-        {/* to add a route here when products filtered by category */}
         <Route
           path="/springmart/products/:productId"
           element={<ProductDetailPage productList={productList} />}
