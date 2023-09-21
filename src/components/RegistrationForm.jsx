@@ -119,7 +119,18 @@ function RegistrationForm() {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <form
         onSubmit={formik.handleSubmit}
         className="mt-8 grid grid-cols-6 gap-6"
