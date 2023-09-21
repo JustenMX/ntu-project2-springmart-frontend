@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import bcrypt from "bcryptjs";
@@ -7,9 +7,12 @@ import openmapAPI from "../api/openmapAPI";
 import springmartAPI from "../api/springmartAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCancel, faSearchLocation } from "@fortawesome/free-solid-svg-icons";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function RegistrationForm() {
   const [address, setAddress] = useState("");
+  const navigate = useNavigate();
 
   /**
    * ==============================================
@@ -99,21 +102,24 @@ function RegistrationForm() {
         console.log("API Response:", response.data);
 
         if (response.status === 200) {
-          alert("User registered successfully");
-          history.pushState("/springmart");
+          console.log("User registered successfully");
+          toast.success("Registered successfully");
+          setTimeout(() => {
+            navigate("/authenticate");
+          }, 2000);
         } else {
           throw new Error("Network Error");
         }
       } catch (error) {
-        console.error("Error:", error);
+        toast.error(error.message);
       }
-
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
     },
   });
 
   return (
     <div>
+      <ToastContainer />
       <form
         onSubmit={formik.handleSubmit}
         className="mt-8 grid grid-cols-6 gap-6"
