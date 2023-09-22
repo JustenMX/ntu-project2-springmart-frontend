@@ -7,7 +7,9 @@ import ProductCTAContainer from "./ProductCTAContainer";
 import CategoryCTAContainer from "./CategoryCTAContainer";
 import SpringMartNavigation from "./SpringMartNavigation";
 
-function SpringMartContainer() {
+function SpringMartContainer(props) {
+  const { productList } = props;
+
   return (
     <>
       <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
@@ -16,7 +18,7 @@ function SpringMartContainer() {
         </div>
         <SpringMartHero />
       </div>
-      <ProductCTAContainer />
+      <ProductCTAContainer productList={productList} />
 
       <BannerCTA />
 

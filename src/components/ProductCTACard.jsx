@@ -10,7 +10,7 @@ function ProductCTACard(props) {
     productName,
     productBrand,
     productCurrentPrice,
-    productOriginalPrice,
+    // productOriginalPrice,
   } = props;
   return (
     <div>
@@ -31,7 +31,7 @@ function ProductCTACard(props) {
             <span className="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white">
               {productDiscount}
             </span>
-            <span className="rounded-lg bg-white px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-gray-800">
+            <span className="rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-gray-800">
               {productDiscountLabel}
             </span>
           </div>
@@ -48,11 +48,11 @@ function ProductCTACard(props) {
 
         <div className="flex flex-col items-end">
           <span className="font-bold text-gray-600 lg:text-lg">
-            {productCurrentPrice}
+            ${productCurrentPrice}
           </span>
-          <span className="text-sm text-red-500 line-through">
+          {/* <span className="text-sm text-red-500 line-through">
             {productOriginalPrice}
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

@@ -1,6 +1,28 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import ProductCTACard from "./ProductCTACard";
 
-function ProductCTAContainer() {
+function ProductCTAContainer(props) {
+  const { productList } = props;
+
+  const [randomProducts, setRandomProducts] = useState([]);
+
+  useEffect(() => {
+    // Convert the object to an array of values
+    if (typeof productList === "object") {
+      const productsArray = Object.values(productList);
+
+      const shuffledDiscountedProducts = productsArray.sort(
+        () => Math.random() - 0.5
+      );
+      console.log(shuffledDiscountedProducts);
+      const randomDiscountedProducts = shuffledDiscountedProducts.slice(0, 4);
+      setRandomProducts(randomDiscountedProducts);
+    }
+  }, [productList]);
+
+  console.log(randomProducts);
+
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -16,43 +38,20 @@ function ProductCTAContainer() {
         </div>
 
         <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
-          <ProductCTACard
-            productImgSrc="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-            productImgAlt="Pineapple"
-            productDiscount="-50%"
-            productDiscountLabel="New"
-            productName="Pineapple"
-            productBrand="Cool Brand"
-            productCurrentPrice="$19.99"
-            productOriginalPrice="$39.99"
-          />
-
-          <ProductCTACard
-            productImgSrc="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-            productImgAlt="Strawberry"
-            productName="Strawberry"
-            productBrand="Cool Brand"
-            productCurrentPrice="$29.99"
-          />
-
-          <ProductCTACard
-            productImgSrc="https://images.unsplash.com/photo-1616606103915-dea7be788566?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-            productImgAlt="chips"
-            productName="Love Corn Chips"
-            productBrand="Cool Brand"
-            productCurrentPrice="$9.99"
-          />
-
-          <ProductCTACard
-            productImgSrc="https://images.unsplash.com/photo-1580314552228-5a7ce023fc9e?auto=format&q=75&fit=crop&crop=top&w=600&h=700"
-            productImgAlt="pulsitos"
-            productDiscount="-20%"
-            productDiscountLabel="New"
-            productName="Pulsitos"
-            productBrand="Cool Brand"
-            productCurrentPrice="$29.99"
-            productOriginalPrice="$49.99"
-          />
+          {randomProducts.map((product) => (
+            <div key={product.id}>
+              <ProductCTACard
+                productImgSrc={product.imgUrl}
+                productImgAlt="springmart product"
+                productDiscount="Buy Now"
+                productDiscountLabel="New"
+                productName={product.label}
+                productBrand={product.brand}
+                productCurrentPrice={product.currentPrice}
+                // productOriginalPrice={product.originalPrice}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

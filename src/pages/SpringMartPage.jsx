@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import SpringMartContainer from "../components/SpringMartContainer";
 
-function SpringMartPage() {
+function SpringMartPage(props) {
+  const { productList } = props;
   return (
     <>
-      <SpringMartContainer />
+      <SpringMartContainer productList={productList} />
     </>
   );
 }
