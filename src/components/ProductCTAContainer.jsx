@@ -48,6 +48,7 @@ function ProductCTAContainer(props) {
                 productName={product.label}
                 productBrand={product.brand}
                 productCurrentPrice={product.currentPrice}
+                params={product.id}
                 // productOriginalPrice={product.originalPrice}
               />
             </div>

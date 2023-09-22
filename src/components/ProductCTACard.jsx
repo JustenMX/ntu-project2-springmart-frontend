@@ -11,6 +11,7 @@ function ProductCTACard(props) {
     productBrand,
     productCurrentPrice,
     // productOriginalPrice,
+    params,
   } = props;
   return (
     <div>
@@ -18,12 +19,12 @@ function ProductCTACard(props) {
         className="group relative mb-2 block h-96 overflow-hidden rounded-lg
         bg-gray-100 shadow-lg lg:mb-3"
       >
-        <Link to="/springmart/category">
+        <Link to={`/springmart/products/${params}`}>
           <img
-            src={productImgSrc}
+            src={`${productImgSrc}?auto=format&q=75&fit=crop&w=600`}
             loading="lazy"
             alt={productImgAlt}
-            className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            className="h-full w-full object-center transition duration-200 group-hover:scale-110 object-contain bg-white"
           />
         </Link>
         {productDiscount && productDiscountLabel && (
@@ -40,7 +41,7 @@ function ProductCTACard(props) {
 
       <div className="flex items-start justify-between gap-2 px-2">
         <div className="flex flex-col text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl">
-          <Link to="/springmart/category">{productName}</Link>
+          <Link to={`/springmart/products/${params}`}>{productName}</Link>
           <span className="text-gray-500 text-sm font-light">
             by {productBrand}
           </span>
