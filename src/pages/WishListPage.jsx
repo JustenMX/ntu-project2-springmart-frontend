@@ -1,11 +1,11 @@
 import SpringMartNavigation from "../components/SpringMartNavigation";
-import WatchListContainer from "../components/WatchListContainer";
+import WishListContainer from "../components/WishListContainer";
 
 function WishListPage() {
   return (
     <div>
       <SpringMartNavigation />
-      <WatchListContainer />
+      <WishListContainer />
     </div>
   );
 }

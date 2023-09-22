@@ -55,10 +55,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         {/* Spring Mart Routes */}
-        <Route
-          path="/springmart"
-          element={<SpringMartPage productList={productList} />}
-        />
+        <Route path="/springmart" element={<SpringMartPage />} />
         <Route path="/springmart/category" element={<CategoryPage />} />
         <Route
           path="/springmart/products"

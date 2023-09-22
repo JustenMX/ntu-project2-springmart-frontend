@@ -14,7 +14,9 @@ function ProductListingCard(props) {
     productListingOriginalPrice,
     productDeleteAllowed,
     params,
+    handleDelete,
   } = props;
+
   return (
     <div>
       <div className="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-transparent lg:mb-3">
@@ -34,7 +36,10 @@ function ProductListingCard(props) {
         )}
 
         {productDeleteAllowed && (
-          <button className="absolute top-2 right-2 p-2 bg-white rounded-xl  hover:bg-slate-200 focus:ring-slate-300">
+          <button
+            onClick={handleDelete}
+            className="absolute top-2 right-2 p-2 bg-white rounded-xl  hover:bg-slate-200 focus:ring-slate-300"
+          >
             <FontAwesomeIcon icon={faXmark} size="xl" />
           </button>
         )}

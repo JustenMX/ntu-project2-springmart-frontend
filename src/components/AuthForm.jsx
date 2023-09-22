@@ -40,7 +40,10 @@ function AuthForm() {
           localStorage.setItem("jwtToken", jwtToken);
           localStorage.setItem("userId", userId);
           localStorage.setItem("username", username);
-          navigate("/springmart");
+
+          setTimeout(() => {
+            navigate("/springmart");
+          }, 2000);
         } else {
           toast.error("Invalid username or password. Please try again.");
         }

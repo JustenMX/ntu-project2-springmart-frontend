@@ -105,7 +105,7 @@ function CartCheckoutContainer() {
                 <div className="ml-4 pt-3 md:ml-8 md:pt-2 lg:ml-16">
                   <span className="block font-bold text-gray-800 md:text-lg">
                     {/* the price that will be updated by the qty update */}$
-                    {13 * count}
+                    {15.75 * count}
                   </span>
                 </div>
               </div>
