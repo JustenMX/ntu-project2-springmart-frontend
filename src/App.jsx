@@ -31,7 +31,11 @@ function App() {
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const response = await springmartAPI.get("/product");
+        const jwtToken = localStorage.getItem("jwtToken");
+        const headers = {
+          Authorization: `Bearer ${jwtToken}`,
+        };
+        const response = await springmartAPI.get("/product", { headers });
         console.log(response.data);
         setProductList(response.data);
       } catch (error) {

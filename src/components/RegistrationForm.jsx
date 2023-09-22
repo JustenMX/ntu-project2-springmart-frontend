@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import bcrypt from "bcryptjs";
 import openmapAPI from "../api/openmapAPI";
 import springmartAPI from "../api/springmartAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -94,9 +93,6 @@ function RegistrationForm() {
       values.joinDate = currentDate;
 
       try {
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(values.password, 10);
-        values.password = hashedPassword;
         // Post Method
         const response = await springmartAPI.post("/user/register", values);
         console.log("API Response:", response.data);
