@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import RegistrationForm from "./RegistrationForm";
 import logo from "../assets/logo.svg";
+
 function RegistrationContainer() {
   return (
     <div>

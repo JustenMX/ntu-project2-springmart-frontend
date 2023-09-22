@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,8 +12,17 @@ import {
 function SpringMartNavigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("username");
+    navigate("/");
   };
 
   return (
@@ -117,9 +126,12 @@ function SpringMartNavigation() {
               </Link>
 
               <div className="absolute hidden bg-white border border-gray-200 py-2 z-20 group-hover:block rounded-md">
-                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
+                <button
+                  onClick={handleLogout}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
                   Log Out
-                </Link>
+                </button>
               </div>
             </div>
 

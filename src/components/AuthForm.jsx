@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import bcrypt from "bcryptjs";
 import springmartAPI from "../api/springmartAPI";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function AuthForm() {
+  const navigate = useNavigate();
+
   /**
    * ==============================================
    * Formik with Yup validation
@@ -12,39 +16,55 @@ function AuthForm() {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: "",
     },
 
     validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email address").required("Required"),
+      username: Yup.string().required("Required"),
       password: Yup.string().required("Required"),
     }),
 
     onSubmit: async (values) => {
       try {
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(values.password, 10);
-        values.password = hashedPassword;
-        // Post Method
-        const response = await springmartAPI.post("/user/authenticate", values);
+        const response = await springmartAPI.post(
+          "/authentication/login",
+          values
+        );
         console.log("API Response:", response.data);
 
-        if (response.data.success) {
-          alert("Login successful! - Welcome to Spring Mart");
-          history.push("/springmart");
+        if (response.data.jwt) {
+          const jwtToken = response.data.jwt;
+          const { userId, username } = response.data.springUserAuth;
+
+          localStorage.setItem("jwtToken", jwtToken);
+          localStorage.setItem("userId", userId);
+          localStorage.setItem("username", username);
+          navigate("/springmart");
         } else {
-          alert("Invalid email or password. Please try again.");
+          toast.error("Invalid username or password. Please try again.");
         }
       } catch (error) {
         console.error("Error", error);
       }
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
     },
   });
 
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <form
         onSubmit={formik.handleSubmit}
         className="mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 bg-white bg-opacity-90 backdrop-blur-md"
@@ -55,14 +75,14 @@ function AuthForm() {
 
         <div className="relative">
           <input
-            type="email"
-            id="email"
-            name="email"
+            type="username"
+            id="username"
+            name="username"
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-black"
             placeholder="Enter email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.email}
+            value={formik.values.username}
           />
 
           <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -81,9 +101,9 @@ function AuthForm() {
               />
             </svg>
           </span>
-          {formik.touched.email && formik.errors.email ? (
+          {formik.touched.username && formik.errors.username ? (
             <div className="flex flex-row m-2 text-sm font-semibold text-red-600">
-              {formik.errors.email}
+              {formik.errors.username}
             </div>
           ) : null}
         </div>
