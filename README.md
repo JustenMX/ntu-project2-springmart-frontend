@@ -2,7 +2,7 @@
 
 ## Springmart: A Full-Stack E-Commerce Powerhouse (Client / Frontend)
 
-![Springmart Logo](https://res.cloudinary.com/doniqecd2/image/upload/v1698082900/SPRINGMART/logo.svg)
+<img src="https://res.cloudinary.com/doniqecd2/image/upload/v1698082900/SPRINGMART/logo.svg" alt="Springmart Logo" width="120" height="120">
 
 Springmart's frontend is a dynamic and intuitive user interface powered by React, Tailwind CSS, and JavaScript. This component seamlessly integrates with the Springmart backend to create a comprehensive full-stack e-commerce platform.
 
